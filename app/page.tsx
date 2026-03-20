@@ -11,6 +11,19 @@ export default function Home() {
     "Sering On di server Prow [kecuali yang sudah izin]."
   ];
 
+  const leaders = [
+    {
+      name: "Surya",
+      role: "Ketua (Guild Master)",
+      description: "Pemimpin utama Azure Moonlight. Pengatur strategi pergerakan dan pemegang keputusan tertinggi tim."
+    },
+    {
+      name: "Sannon",
+      role: "Admin (Lead Strategist)",
+      description: "Pengelola internal tim. Menjaga kedisiplinan anggota dan memastikan kelancaran operasional faksi."
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-[#060B19] text-slate-300 font-sans selection:bg-cyan-500 selection:text-white overflow-hidden">
       
@@ -22,7 +35,7 @@ export default function Home() {
       <section className="relative min-h-[85vh] flex flex-col items-center justify-center px-6 text-center z-10">
         
         {/* Badge Motto */}
-        <div className="group cursor-default mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-950/50 border border-blue-500/30 backdrop-blur-md transition-all hover:border-cyan-400/60 hover:shadow-[0_0_20px_rgba(34,211,238,0.2)]">
+        <div className="group cursor-default mb-8 mt-16 md:mt-0 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-950/50 border border-blue-500/30 backdrop-blur-md transition-all hover:border-cyan-400/60 hover:shadow-[0_0_20px_rgba(34,211,238,0.2)]">
           <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
           <span className="text-sm font-semibold tracking-widest uppercase text-cyan-300">
             Motto: Moonlight Rise!
@@ -55,7 +68,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Call to Action Button (Optional) */}
+        {/* Call to Action Button */}
         <button className="mt-12 px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold rounded-xl hover:scale-105 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] transition-all duration-300 flex items-center gap-2">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
@@ -63,6 +76,46 @@ export default function Home() {
           </svg>
           Join Server Prow
         </button>
+      </section>
+
+      {/* --- TEAM PROFILES SECTION --- */}
+      <section className="relative z-10 max-w-5xl mx-auto px-6 pb-24 pt-10">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-white mb-4">Petinggi Tim</h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent mx-auto rounded-full"></div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {leaders.map((leader, index) => (
+            <div 
+              key={index} 
+              className="group relative p-8 rounded-3xl bg-gradient-to-b from-white/[0.05] to-transparent border border-white/[0.05] hover:border-cyan-500/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(34,211,238,0.2)] flex flex-col items-center text-center"
+            >
+              {/* Glow Effect on Hover */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-b from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+
+              {/* Avatar Initial */}
+              <div className="relative w-24 h-24 mb-6 rounded-2xl bg-gradient-to-br from-blue-900 to-[#060B19] border-2 border-cyan-500/30 flex items-center justify-center group-hover:border-cyan-400 group-hover:shadow-[0_0_20px_rgba(34,211,238,0.4)] transition-all duration-300 transform rotate-3 group-hover:rotate-0">
+                <span className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-cyan-400">
+                  {leader.name.charAt(0)}
+                </span>
+              </div>
+
+              {/* Name & Role */}
+              <h3 className="text-2xl font-bold text-white mb-1 group-hover:text-cyan-300 transition-colors">
+                {leader.name}
+              </h3>
+              <div className="text-sm font-semibold tracking-widest uppercase text-blue-400 mb-4 px-3 py-1 bg-blue-950/50 rounded-full border border-blue-800/50">
+                {leader.role}
+              </div>
+
+              {/* Description */}
+              <p className="text-slate-400 leading-relaxed text-sm md:text-base">
+                {leader.description}
+              </p>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* --- RULES SECTION --- */}
@@ -97,7 +150,7 @@ export default function Home() {
       <footer className="relative z-10 border-t border-white/5 bg-black/20 backdrop-blur-lg">
         <div className="max-w-5xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <span className="w-3 h-3 rounded-full bg-cyan-500"></span>
+            <span className="w-3 h-3 rounded-full bg-cyan-500 animate-pulse"></span>
             <span className="font-bold text-white tracking-wider">AZURE MOONLIGHT</span>
           </div>
           <p className="text-slate-500 text-sm">
